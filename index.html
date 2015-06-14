@@ -1,14 +1,42 @@
 <html>
-	<head></head>
+	<head>
+		<script>
+			function testFlash() {
+				var support = false;
+				//IE only
+				if ("ActiveXObject" in window) {
+					try {
+						support = !!(new ActiveXObject("ShockwaveFlash.ShockwaveFlash"));
+					} catch(e) {
+						support = false;
+					}
+				//W3C, better support in legacy browser
+				}
+				if (!support) {
+					support = !!navigator.mimeTypes['application/x-shockwave-flash'];
+				}
+				return support;
+			}
+			function makeFlash() {
+				document.getElementById("gameContainer").innerHTML='<iframe allowtransparency="true" width="485" height="402" src="//scratch.mit.edu/projects/embed/60115666/?autostart=true" frameborder="0" allowfullscreen></iframe>';
+			}
+			function makePhosphorus() {
+				document.getElementById("gameContainer").innerHTML='<script src="//phosphorus.github.io/embed.js?id=60115666&auto-start=true&light-content=false"></script>'
+			}
+		</script>
+	</head>
 	<body>
 		<h1>Geometry Smash</h1>
 		<p>
 			This is a game made by wizzwizz4. At the bottom of this page there is a survey. After playing the game, please complete the survey.<br />
 			The aim of Geometry Smash is to get the blue circle to the green circle. Sounds easy?<br />
-			Play it here (Flash / Tablet):
+			Play it here (<a onclick="makeFlash();">Flash</a> / <a onclick="makePhosphorus();">No Flash</a>):
 		</p>
-		<iframe allowtransparency="true" width="485" height="402" src="//scratch.mit.edu/projects/embed/60115666/?autostart=true" frameborder="0" allowfullscreen></iframe>
-		<script src="//phosphorus.github.io/embed.js?id=60115666&auto-start=true&light-content=false"></script>
+		<div id="gameContainer">
+			<noscript>
+				<iframe allowtransparency="true" width="485" height="402" src="//scratch.mit.edu/projects/embed/60115666/?autostart=true" frameborder="0" allowfullscreen></iframe>
+			</noscript>
+		</div>
 		<h2>Survey</h2>
 		<p>
 			<a href="https://colytongrammarschool-my.sharepoint.com/personal/14smould_colytongrammar_devon_sch_uk/_layouts/15/guestaccess.aspx?guestaccesstoken=6JR34xGGDHtQmEBbAXG5MXcRbDGkpwB9imF9dsxyz4A%3d&docid=1_1af2abdbc484d46af9c3e7c84bf3cd32f&wdFormId=%7BE817E2C4%2DE29B%2D4057%2D92B9%2D5301DD49E173%7D">Click here for the survey</a>
