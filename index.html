@@ -21,7 +21,7 @@
 				document.getElementById("gameContainer").innerHTML='<iframe allowtransparency="true" width="485" height="402" src="//scratch.mit.edu/projects/embed/60115666/?autostart=true" frameborder="0" allowfullscreen></iframe>';
 			}
 			function makePhosphorus() {
-				document.getElementById("gameContainer").innerHTML='<script src="//phosphorus.github.io/embed.js?id=60115666&auto-start=true&light-content=false"></script>'
+				document.getElementById("gameContainer").innerHTML=('<script src="//phosphorus.github.io/embed.js?id=60115666&auto-start=true&light-content=false"></'+'script>')
 			}
 		</script>
 	</head>
@@ -42,5 +42,12 @@
 			<a href="https://colytongrammarschool-my.sharepoint.com/personal/14smould_colytongrammar_devon_sch_uk/_layouts/15/guestaccess.aspx?guestaccesstoken=6JR34xGGDHtQmEBbAXG5MXcRbDGkpwB9imF9dsxyz4A%3d&docid=1_1af2abdbc484d46af9c3e7c84bf3cd32f&wdFormId=%7BE817E2C4%2DE29B%2D4057%2D92B9%2D5301DD49E173%7D">Click here for the survey</a>
 			Note: you will have to restart this page.
 		</p>
+		<script>
+			if (testFlash()) {
+				makeFlash();
+			} else {
+				makePhosphorus();
+			}
+		</script>
 	</body>
 </html>
